@@ -48,16 +48,16 @@ class User(models.Model):
 
 class ExpenseType(models.Model):
     type = models.CharField(max_length=20)
-    description = models.CharField(blank=True)
+    description = models.CharField(max_length=255, blank=True)
 
     def __repr__(self):
         return '<ExpenseType: type={}>'.format(self.type)
 
 
 class Expense(models.Model):
-    name = models.CharField()
+    name = models.CharField(max_length=60)
     amount = models.FloatField()
-    details = models.CharField(blank=True)
+    details = models.CharField(max_length=255, blank=True)
 
     class Currencies(models.TextChoices):
         AUD = 'AUD', _('Australia Dollar')
